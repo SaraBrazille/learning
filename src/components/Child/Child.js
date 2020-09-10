@@ -8,27 +8,11 @@ import './Child.css';
 export default class Child extends Component {
 	constructor(props) {
 		super(props)
-
-		this.state = {
-			word: "waiting"
-		}
-	}
-
-	buttonIsClicked = () => {
-		this.setState({
-			word: "You clicked it!"
-		})
-	}
-
-	componentDidMount = () => {
-		this.setState({
-			word: "Mounted!"
-		})
 	}
 
 	render() {
 		return (
-			<>{this.props.children}</>
+			<button onClick={this.props.setColor}>Test</button>
 		)
 	}
 }

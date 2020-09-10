@@ -2,25 +2,28 @@ import React, { Component } from 'react';
 
 import './Parent.css';
 import GoogleMapReact from 'google-map-react';
+import Child from '../Child';
 
 export default class Parent extends Component {
 
-	static defaultProps = {
-		center: {
-			lat: 59.95,
-			lng: 30.33
-		},
-		zoom: 11
-	};
+	constructor(props) {
+		super(props)
+	
+		this.state = {
+			color: "white"
+		}
+	}
+	
+	handleSetColor = () => {
+		this.setState({
+			color: "red"
+		})
+	}
 
 	render() {
 		return (
-			<div style={{ height: '50vh', width: '50%' }}>
-				<GoogleMapReact
-					defaultCenter={this.props.center}
-					defaultZoom={this.props.zoom}
-				>
-				</GoogleMapReact>
+			<div style={{ height: '100vh', backgroundColor: this.state.color, width: '100%' }}>
+				<Child setColor={this.handleSetColor}></Child>
 			</div>
 		)
 	}
